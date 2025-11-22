@@ -75,8 +75,30 @@ const server = app.listen(PORT, () => {
   logger.info(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`);
 });
 
+// ------------------------------
+// Keep-Alive Ping for Python Service
+// ------------------------------
+const axios = require("axios");
+
+const PYTHON_HEALTH_URL = 'https://tradeedge-python-flask.onrender.com' + "/health"; 
+
+function pingPythonService() {
+  axios.get(PYTHON_HEALTH_URL, { timeout: 10000 })
+    .then(() => logger.info("Python service keep-alive ping OK"))
+    .catch(err => logger.warn("Python keep-alive failed: " + err.message));
+}
+
+
+pingPythonService();
+
+// Ping every 5 minutes
+setInterval(pingPythonService, 2 * 60 * 1000);
+
+
 // Handle unhandled promise rejections
 process.on('unhandledRejection', (err) => {
   logger.error(`Unhandled Rejection: ${err.message}`);
   server.close(() => process.exit(1));
 });
+
+
