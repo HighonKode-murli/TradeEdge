@@ -1,0 +1,33 @@
+{
+  "name": "trading-strategy-platform",
+  "version": "2.0.0",
+  "description": "Full-stack trading strategy backtesting platform with Flask API",
+  "main": "index.js",
+  "scripts": {
+    "install-all": "cd backend && npm install && cd ../frontend && npm install && cd ../backend/python-engine && pip install -r requirements.txt",
+    "dev": "echo Please use start.bat (Windows) or start.sh (Linux/Mac) to run all services",
+    "start": "echo Please use start.bat (Windows) or start.sh (Linux/Mac) to run all services",
+    "build": "cd frontend && npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "trading",
+    "backtesting",
+    "strategy",
+    "react",
+    "nodejs",
+    "mongodb",
+    "flask",
+    "python",
+    "algorithmic-trading"
+  ],
+  "author": "",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
