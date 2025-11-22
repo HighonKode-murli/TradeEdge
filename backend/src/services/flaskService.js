@@ -2,7 +2,7 @@ const axios = require('axios');
 const fs = require('fs');
 const logger = require('../config/logger');
 
-const FLASK_API_URL = process.env.FLASK_API_URL || 'http://localhost:5001';
+const FLASK_API_URL = process.env.FLASK_API_URL;
 
 /**
  * Run backtest via Flask API
